@@ -81,10 +81,10 @@ const MacintoshLanding = () => {
   };
 
   const desktopApps = [
-    { name: "About Me", icon: faUser, path: "/mindset" },
-    { name: "Toolkit", icon: faCog, path: "/skillset" },
+    { name: "Mindset", icon: faUser, path: "/mindset" },
+    { name: "Skillset", icon: faCog, path: "/skillset" },
     { name: "Projects", icon: faLaptopCode, path: "/projects" },
-    { name: "Resume", icon: faFileAlt, path: "/resume" },
+    // { name: "Resume", icon: faFileAlt, path: "/resume" },
     { name: "Contact", icon: faEnvelope, path: "/contact" },
   ];
 
@@ -250,8 +250,7 @@ const MacintoshLanding = () => {
             <div className="window-content">
               <h2>Hello, I'm Demaceo Vincent</h2>
               <p>
-                Welcome to my digital workspace. Click on the icons to explore
-                my work, learn about me, and/or how to contact me.
+                Click on the icons to explore my work, learn about me, and how best to reach out.
               </p>
               <div className="quick-links">
                 <button onClick={() => handleAppClick("/mindset")}>

@@ -26,13 +26,18 @@
 /* Desktop Macintosh Styles */
 .macintosh-container {
   height: 100vh;
-  background: #c0c0c0;
-  font-family: "Chicago", "Geneva", sans-serif;
+  /* background: #c0c0c0; */
+  background-image: url("../assets/bg/palmtreeleaves-5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* color: #000000; */
+  /* font-family: "Chicago", "Geneva", sans-serif; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  cursor: url("../assets/logo/logo(light).png") 16 16, default;
+  /* cursor: url("../assets/logo/logo(light).png") 6 6, default; */
 }
 
 .mac-screen {
@@ -52,7 +57,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 5px 10px;
   font-size: 12px;
 }
 
