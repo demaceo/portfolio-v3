@@ -91,7 +91,7 @@ const MacintoshLanding = () => {
   const mobileApps = [
     { name: "About", icon: faUser, path: "/mindset" },
     { name: "Projects", icon: faLaptopCode, path: "/projects" },
-    { name: "Resume", icon: faFileAlt, path: "/resume" },
+    // { name: "Resume", icon: faFileAlt, path: "/resume" },
     { name: "Toolkit", icon: faCog, path: "/skillset" },
     { name: "Contact", icon: faEnvelope, path: "/contact" },
     // { name: "Media", icon: "📷", path: "/projects" },

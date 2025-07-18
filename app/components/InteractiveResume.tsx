@@ -12,11 +12,12 @@ function ExperienceCard({
   return (
     <div className="experience-card">
       <h3>
-        {exp.role} @ {exp.organization}
+        {exp.role} @ {exp.organization}{" "}
+        <span className="experience-date">
+          {exp.startDate} {exp.endDate ? `— ${exp.endDate}` : ""}
+        </span>
       </h3>
-      <p>
-        {exp.startDate} {exp.endDate ? `— ${exp.endDate}` : ""}
-      </p>
+
       <p>{exp.summary}</p>
     </div>
   );
@@ -27,7 +28,7 @@ export default function InteractiveResume() {
   const {
     name,
     title,
-    location,
+    // location,
     // email,
     website,
     linkedin,
@@ -54,15 +55,9 @@ export default function InteractiveResume() {
   return (
     <div className="workxp-container" ref={resumeRef}>
       <header className="workxp-header">
-        <h1>{name}</h1>
-        <p>
-          {title} | {location}
-        </p>
+        <h1 className="shadowed-text">{name}</h1>
+        <p>{title}</p>
         <div>
-          {/* <a href={`mailto:${email}`} className="underline">
-            {email}
-          </a>{" "}
-          •{" "} */}
           <a href={website} className="underline">
             Portfolio
           </a>{" "}
@@ -79,40 +74,43 @@ export default function InteractiveResume() {
       </header>
 
       <main>
-        <section>
-          <h2>Experience</h2>
+        <section className="xp-section" >
+          <h2 className="shadowed-text">Experience</h2>
           {experiences.map((exp) => (
-            <ExperienceCard key={`${exp.role}-${exp.organization}-${exp.startDate}`} exp={exp} />
+            <ExperienceCard
+              key={`${exp.role}-${exp.organization}-${exp.startDate}`}
+              exp={exp}
+            />
           ))}
         </section>
 
-        <section>
-          <h2>Education</h2>
-          {education.map((edu) => (
-            <div
-              key={`${edu.institution}-${edu.program}`}
-              className="education-item"
-            >
-              <p className="institution">{edu.institution}</p>
-              <p className="program">
-                {edu.program} | {edu.years}
-              </p>
-            </div>
-          ))}
+        <section className="xp-section" >
+          <h2 className="shadowed-text">Education</h2>
+          <div className="edu-container">
+            {education.map((edu) => (
+              <div
+                key={`${edu.institution}-${edu.program}`}
+                className="education-item"
+              >
+                <p className="institution">{edu.institution}</p>
+                <p className="program">{edu.program}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
-        <section>
-          <h2>Skills & Interests</h2>
+        <section className="xp-section" >
+          <h2 className="shadowed-text">Skills & Interests</h2>
           <div className="skills-container">
-            {skills.map((skill, idx) => (
-              <span key={idx} className="skill-item">
+            {skills.map((skill) => (
+              <span key={skill} className="skill-item">
                 {skill}
               </span>
             ))}
           </div>
           <div className="interests-container">
-            {interests.map((i, idx) => (
-              <span key={idx} className="interest-item">
+            {interests.map((i) => (
+              <span key={i} className="interest-item">
                 {i}
               </span>
             ))}

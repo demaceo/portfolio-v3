@@ -2,8 +2,29 @@
 :root {
   --font-primary: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-secondary: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-lato: "Lato", sans-serif;
   --gradient-start: rgba(92, 129, 202, 1);
   --gradient-end: rgba(249, 140, 112, 1);
+
+  /* Archived title styling variables */
+  --archived-title-font-size: 2.5rem;
+  --archived-title-font-weight: lighter;
+  --archived-title-color: #e4e2e2dc;
+  --archived-title-font-family: "Lato", sans-serif;
+  --archived-title-text-transform: uppercase;
+  --archived-title-text-shadow: 0px 10px rgba(0, 0, 0, 0.15);
+  --archived-title-text-align: center;
+}
+
+/* Shadowed title styling as a reusable class using CSS variables */
+.shadowed-text {
+  font-size: var(--archived-title-font-size);
+  font-weight: var(--archived-title-font-weight);
+  color: var(--archived-title-color);
+  font-family: var(--archived-title-font-family);
+  text-transform: var(--archived-title-text-transform);
+  text-shadow: var(--archived-title-text-shadow);
+  text-align: var(--archived-title-text-align);
 }
 
 /* Base typography */

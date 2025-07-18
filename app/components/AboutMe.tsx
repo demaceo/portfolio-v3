@@ -5,7 +5,7 @@ const AboutMe: React.FC = () => {
   return (
     <section className="about-me-container">
       <div className="about-me-title-container">
-        <h1 className="about-me-title">About Demaceo</h1>
+        <h1 className="about-me-title shadowed-text">About Demaceo</h1>
       </div>
       <div className="about-me-content">
         <p>
@@ -41,7 +41,7 @@ const AboutMe: React.FC = () => {
           action.
         </p>
         <br />
-        <h2>TLDR</h2>
+        <h2 className="shadowed-text">TLDR</h2>
         <p>
           Whether I’m leading a project, supporting a team, or exploring new
           ideas, I bring together curiosity, reliability, and a genuine desire

@@ -33,7 +33,7 @@ const handleCardToggle = (index: number): void =>
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="service-main-title-container">
-        <h2 className="service-main-title">Service Spectrum</h2>
+        <h2 className="service-main-title shadowed-text">Service Spectrum</h2>
       </div>
 
       <div className="service-boxes-container">

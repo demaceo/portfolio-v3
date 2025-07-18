@@ -85,7 +85,7 @@ const NavBar = memo(() => {
           >
             PROJECTS
           </Link>
-          <Link
+          {/* <Link
             to="/resume"
             className={`nav-link ${
               location.pathname === "/resume" ? "active-link" : ""
@@ -93,7 +93,7 @@ const NavBar = memo(() => {
             onClick={closeMenu}
           >
             XP
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </header>

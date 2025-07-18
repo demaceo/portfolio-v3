@@ -51,7 +51,7 @@ const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>, index: number
   return (
     <section className="principles-page">
       <div className="principle-main-title-container">
-        <h2 className="principle-main-title">Principles & Strategies</h2>
+        <h2 className="principle-main-title shadowed-text">Principles & Strategies</h2>
       </div>
 
       <div className="accordion-container" role="presentation">

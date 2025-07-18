@@ -38,7 +38,7 @@ interface DemaceoProfile {
 
 export const DemaceoResume: DemaceoProfile = {
   name: "Demaceo Vincent",
-  title: "Lead Front-End Engineer & Tech Consultant",
+  title: "Developer | Designer",
   location: "Colorado",
   email: "hdemaceo@gmail.com",
   website: "https://www.demaceo.com",
