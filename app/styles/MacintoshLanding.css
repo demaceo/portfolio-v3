@@ -300,11 +300,11 @@
 }
 
 .time {
-  position: absolute;
+  /* position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  font-weight: 700;
-  font-size: 18px;
+  transform: translateX(-50%); */
+  /* font-weight: 700; */
+  /* font-size: 18px; */
 }
 
 .battery {
