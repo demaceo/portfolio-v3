@@ -1,12 +1,27 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
-  "installCommand": "npm install",
-  "framework": null,
-  "rewrites": [
+  "functions": {
+    "app/server.ts": {
+      "runtime": "@vercel/node@3"
+    }
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/_build/(.*)",
+      "dest": "/build/client/_build/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/build/client/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/build/client/favicon.ico"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/app/server.ts"
     }
   ]
 }
