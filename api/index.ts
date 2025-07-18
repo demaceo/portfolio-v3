@@ -4,14 +4,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log('Vercel function called:', req.url, req.method);
 
     try {
-        // Try to import React Router's createRequestHandler
-        // @ts-ignore - Dynamic import of build output  
-        const { createRequestHandler } = await import('@react-router/node');
+        // Import the React Router server build directly
         // @ts-ignore - Dynamic import of build output
         const serverBuild = await import('../build/server/index.js');
 
-        // Create the request handler
-        const handler = createRequestHandler(serverBuild);
+        // The server build should export a default function that handles requests
+        const handleRequest = serverBuild.default;
+
+        if (typeof handleRequest !== 'function') {
+            throw new Error('Server build did not export a request handler function');
+        }
 
         // Create a Web API Request
         const request = new Request(`https://${req.headers.host}${req.url}`, {
@@ -20,9 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             body: req.method !== 'GET' && req.method !== 'HEAD' ? JSON.stringify(req.body) : undefined,
         });
 
-        const response = await handler(request);
-
-        // Set headers from the React Router response
+        const response = await handleRequest(request);        // Set headers from the React Router response
         response.headers.forEach((value: string, key: string) => {
             res.setHeader(key, value);
         });
