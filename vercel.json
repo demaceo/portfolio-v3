@@ -1,27 +1,13 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "build/client",
   "functions": {
     "app/server.ts": {
-      "runtime": "nodejs20.x"
+      "runtime": "@vercel/node@20"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/_build/(.*)",
-      "dest": "/build/client/_build/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/build/client/assets/$1"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/build/client/favicon.ico"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/app/server.ts"
+      "source": "/(.*)",
+      "destination": "/app/server"
     }
   ]
 }
