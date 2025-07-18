@@ -73,19 +73,19 @@ const MacintoshLanding = () => {
   };
 
   const desktopApps = [
-    { name: "About Me", icon: "👤", path: "/mindset" },
-    { name: "Toolkit", icon: "🛠️", path: "/skillset" },
-    { name: "Projects", icon: "💼", path: "/projects" },
-    { name: "Resume", icon: "📄", path: "/resume" },
-    { name: "Contact", icon: "📧", path: "/contact" },
+    { name: "About Me", icon: "⚡", path: "/mindset" },
+    { name: "Toolkit", icon: "⚙️", path: "/skillset" },
+    { name: "Projects", icon: "◆", path: "/projects" },
+    { name: "Resume", icon: "▣", path: "/resume" },
+    { name: "Contact", icon: "◉", path: "/contact" },
   ];
 
   const mobileApps = [
-    { name: "About", icon: "👤", path: "/mindset" },
-    { name: "Projects", icon: "💼", path: "/projects" },
-    { name: "Resume", icon: "📄", path: "/resume" },
-    { name: "Toolkit", icon: "🛠️", path: "/skillset" },
-    { name: "Contact", icon: "📧", path: "/contact" },
+    { name: "About", icon: "⚡", path: "/mindset" },
+    { name: "Projects", icon: "◆", path: "/projects" },
+    { name: "Resume", icon: "▣", path: "/resume" },
+    { name: "Toolkit", icon: "⚙️", path: "/skillset" },
+    { name: "Contact", icon: "◉", path: "/contact" },
     // { name: "Photos", icon: "📷", path: "/projects" },
     // { name: "Settings", icon: "⚙️", path: "/mindset" },
     // { name: "Messages", icon: "💬", path: "/mindset" },
@@ -138,7 +138,7 @@ const MacintoshLanding = () => {
                 }
               }}
             >
-              💼
+              ◆
             </button>
             <button
               className="dock-app"
@@ -152,7 +152,7 @@ const MacintoshLanding = () => {
                 }
               }}
             >
-              👤
+              ⚡
             </button>
             <button
               className="dock-app"
@@ -166,7 +166,7 @@ const MacintoshLanding = () => {
                 }
               }}
             >
-              📄
+              ▣
             </button>
           </div>
         </div>
@@ -208,7 +208,7 @@ const MacintoshLanding = () => {
 
         <div className="desktop">
           <div className="desktop-items">
-              {desktopApps.map((app) => (
+            {desktopApps.map((app) => (
               <button
                 key={app.name}
                 className="desktop-icon"
