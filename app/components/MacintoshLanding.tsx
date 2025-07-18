@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faCog,
+  faLaptopCode,
+  faFileAlt,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
 import logo from "../assets/logo/logo(light).png";
 import "../styles/MacintoshLanding.css";
@@ -44,7 +52,7 @@ const MacintoshLanding = () => {
 
   interface App {
     name: string;
-    icon: string;
+    icon: any; // FontAwesome IconDefinition
     path: string;
   }
 
@@ -73,19 +81,19 @@ const MacintoshLanding = () => {
   };
 
   const desktopApps = [
-    { name: "About Me", icon: "⚡", path: "/mindset" },
-    { name: "Toolkit", icon: "⚙️", path: "/skillset" },
-    { name: "Projects", icon: "◆", path: "/projects" },
-    { name: "Resume", icon: "▣", path: "/resume" },
-    { name: "Contact", icon: "◉", path: "/contact" },
+    { name: "About Me", icon: faUser, path: "/mindset" },
+    { name: "Toolkit", icon: faCog, path: "/skillset" },
+    { name: "Projects", icon: faLaptopCode, path: "/projects" },
+    { name: "Resume", icon: faFileAlt, path: "/resume" },
+    { name: "Contact", icon: faEnvelope, path: "/contact" },
   ];
 
   const mobileApps = [
-    { name: "About", icon: "⚡", path: "/mindset" },
-    { name: "Projects", icon: "◆", path: "/projects" },
-    { name: "Resume", icon: "▣", path: "/resume" },
-    { name: "Toolkit", icon: "⚙️", path: "/skillset" },
-    { name: "Contact", icon: "◉", path: "/contact" },
+    { name: "About", icon: faUser, path: "/mindset" },
+    { name: "Projects", icon: faLaptopCode, path: "/projects" },
+    { name: "Resume", icon: faFileAlt, path: "/resume" },
+    { name: "Toolkit", icon: faCog, path: "/skillset" },
+    { name: "Contact", icon: faEnvelope, path: "/contact" },
     // { name: "Photos", icon: "📷", path: "/projects" },
     // { name: "Settings", icon: "⚙️", path: "/mindset" },
     // { name: "Messages", icon: "💬", path: "/mindset" },
@@ -118,7 +126,9 @@ const MacintoshLanding = () => {
                     }
                   }}
                 >
-                  <span className="icon">{app.icon}</span>
+                  <span className="icon">
+                    <FontAwesomeIcon icon={app.icon} />
+                  </span>
                   <span className="app-name">{app.name}</span>
                 </button>
               ))}
@@ -138,7 +148,7 @@ const MacintoshLanding = () => {
                 }
               }}
             >
-              ◆
+              <FontAwesomeIcon icon={faLaptopCode} />
             </button>
             <button
               className="dock-app"
@@ -152,7 +162,7 @@ const MacintoshLanding = () => {
                 }
               }}
             >
-              ⚡
+              <FontAwesomeIcon icon={faUser} />
             </button>
             <button
               className="dock-app"
@@ -166,7 +176,7 @@ const MacintoshLanding = () => {
                 }
               }}
             >
-              ▣
+              <FontAwesomeIcon icon={faFileAlt} />
             </button>
           </div>
         </div>
@@ -222,7 +232,9 @@ const MacintoshLanding = () => {
                   }
                 }}
               >
-                <div className="icon-image">{app.icon}</div>
+                <div className="icon-image">
+                  <FontAwesomeIcon icon={app.icon} />
+                </div>
                 <span className="icon-label">{app.name}</span>
               </button>
             ))}

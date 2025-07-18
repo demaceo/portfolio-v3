@@ -1,3 +1,28 @@
+/* FontAwesome Icon Styling */
+.icon-image svg,
+.icon svg,
+.dock-app svg {
+  width: 100%;
+  height: 100%;
+  max-width: 28px;
+  max-height: 28px;
+}
+
+.desktop-icon .icon-image svg {
+  width: 32px;
+  height: 32px;
+}
+
+.app-icon .icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.dock-app svg {
+  width: 26px;
+  height: 26px;
+}
+
 /* Desktop Macintosh Styles */
 .macintosh-container {
   height: 100vh;
