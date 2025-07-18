@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/assets/(.*)",
+      "destination": "/dist/assets/$1"
+    },
+    {
+      "source": "/dist/(.*)",
+      "destination": "/dist/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/api/index"
     }
