@@ -9,7 +9,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const { createRequestHandler } = await import('@react-router/node');
         // @ts-ignore - Dynamic import of build output
         const serverBuild = await import('../build/server/index.js');
-        
+
         // Create the request handler
         const handler = createRequestHandler(serverBuild);
 

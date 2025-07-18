@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import Contact from "./Contact";
 
 interface LayoutProps {
-  children: React.ReactNode;
+  readonly children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {

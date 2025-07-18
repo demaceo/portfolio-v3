@@ -7,7 +7,7 @@ import "../styles/InteractiveResume.css";
 function ExperienceCard({
   exp,
 }: {
-  exp: (typeof DemaceoResume.experiences)[0];
+  readonly exp: (typeof DemaceoResume.experiences)[0];
 }) {
   return (
     <div className="experience-card">
@@ -81,15 +81,18 @@ export default function InteractiveResume() {
       <main>
         <section>
           <h2>Experience</h2>
-          {experiences.map((exp, idx) => (
-            <ExperienceCard key={idx} exp={exp} />
+          {experiences.map((exp) => (
+            <ExperienceCard key={`${exp.role}-${exp.organization}-${exp.startDate}`} exp={exp} />
           ))}
         </section>
 
         <section>
           <h2>Education</h2>
-          {education.map((edu, idx) => (
-            <div key={idx} className="education-item">
+          {education.map((edu) => (
+            <div
+              key={`${edu.institution}-${edu.program}`}
+              className="education-item"
+            >
               <p className="institution">{edu.institution}</p>
               <p className="program">
                 {edu.program} | {edu.years}
