@@ -182,18 +182,18 @@ const MacintoshLanding = () => {
         </div>
 
         {showContactForm && (
-          <div className="contact-overlay">
-            <div className="contact-window">
-              <div className="contact-header">
-                <button className="close-contact" onClick={handleCloseContact}>
-                  ✕
-                </button>
-              </div>
+          // <div className="contact-overlay">
+          //   <div className="contact-window">
+          //     <div className="contact-header">
+          //       <button className="close-contact" onClick={handleCloseContact}>
+          //         ✕
+          //       </button>
+          //     </div>
               <div className="contact-content">
                 <ContactForm onClose={handleCloseContact} />
               </div>
-            </div>
-          </div>
+          //   </div>
+          // </div>
         )}
       </div>
     );
@@ -250,7 +250,8 @@ const MacintoshLanding = () => {
             <div className="window-content">
               <h2>Hello, I'm Demaceo Vincent</h2>
               <p>
-                Click on the icons to explore my work, learn about me, and how best to reach out.
+                Click on the icons to explore my work, learn about me, and how
+                best to reach out.
               </p>
               <div className="quick-links">
                 <button onClick={() => handleAppClick("/mindset")}>
