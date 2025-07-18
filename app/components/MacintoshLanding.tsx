@@ -94,7 +94,7 @@ const MacintoshLanding = () => {
     { name: "Resume", icon: faFileAlt, path: "/resume" },
     { name: "Toolkit", icon: faCog, path: "/skillset" },
     { name: "Contact", icon: faEnvelope, path: "/contact" },
-    // { name: "Photos", icon: "📷", path: "/projects" },
+    // { name: "Media", icon: "📷", path: "/projects" },
     // { name: "Settings", icon: "⚙️", path: "/mindset" },
     // { name: "Messages", icon: "💬", path: "/mindset" },
     // { name: "Calendar", icon: "📅", path: "/resume" },
