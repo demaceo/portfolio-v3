@@ -1,13 +1,12 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import MacintoshLanding from "../components/MacintoshLanding";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Portfolio - Welcome" },
+    { name: "description", content: "Welcome to my digital portfolio!" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <MacintoshLanding />;
 }

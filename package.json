@@ -9,12 +9,21 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@react-router/node": "^7.7.0",
     "@react-router/serve": "^7.7.0",
+    "bootstrap": "^5.3.7",
+    "framer-motion": "^12.23.6",
+    "html2canvas": "^1.4.1",
     "isbot": "^5.1.27",
+    "jspdf": "^3.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^7.7.0"
+    "react-router": "^7.7.0",
+    "react-router-dom": "^7.7.0"
   },
   "devDependencies": {
     "@react-router/dev": "^7.7.0",
