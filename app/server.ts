@@ -1,52 +1,53 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  console.log('Vercel function called:', req.url, req.method);
-  
-  try {
-    // Import the React Router server build
-    const { default: build } = await import('../build/server/index.js') as any;
-    
-    // Create a response object that matches the expected interface
-    const response = await build({
-      request: new Request(`https://${req.headers.host}${req.url}`, {
-        method: req.method,
-        headers: new Headers(req.headers as Record<string, string>),
-        body: req.method !== 'GET' && req.method !== 'HEAD' ? JSON.stringify(req.body) : undefined,
-      }),
-    });
-    
-    // Set headers from the React Router response
-    response.headers.forEach((value: string, key: string) => {
-      res.setHeader(key, value);
-    });
-    
-    // Set status and send response
-    res.status(response.status);
-    
-    if (response.body) {
-      const reader = response.body.getReader();
-      const chunks: Uint8Array[] = [];
-      
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        chunks.push(value);
-      }
-      
-      const body = Buffer.concat(chunks).toString('utf-8');
-      res.send(body);
-    } else {
-      res.end();
-    }
-    
-  } catch (error) {
-    console.error('Error in React Router server:', error);
-    
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    
-    // Fallback HTML
-    res.status(200).send(`
+    console.log('Vercel function called:', req.url, req.method);
+
+    try {
+        // Import the React Router server build
+        // @ts-ignore - Dynamic import of build output
+        const { default: build } = await import('../build/server/index.js') as any;
+
+        // Create a response object that matches the expected interface
+        const response = await build({
+            request: new Request(`https://${req.headers.host}${req.url}`, {
+                method: req.method,
+                headers: new Headers(req.headers as Record<string, string>),
+                body: req.method !== 'GET' && req.method !== 'HEAD' ? JSON.stringify(req.body) : undefined,
+            }),
+        });
+
+        // Set headers from the React Router response
+        response.headers.forEach((value: string, key: string) => {
+            res.setHeader(key, value);
+        });
+
+        // Set status and send response
+        res.status(response.status);
+
+        if (response.body) {
+            const reader = response.body.getReader();
+            const chunks: Uint8Array[] = [];
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                chunks.push(value);
+            }
+
+            const body = Buffer.concat(chunks).toString('utf-8');
+            res.send(body);
+        } else {
+            res.end();
+        }
+
+    } catch (error) {
+        console.error('Error in React Router server:', error);
+
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+
+        // Fallback HTML
+        res.status(200).send(`
       <!DOCTYPE html>
       <html>
         <head>
@@ -67,5 +68,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </body>
       </html>
     `);
-  }
+    }
 }
