@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import services from "../utilities/servicesData";
 import { useState, useEffect } from "react";
 import ContactForm from "./ContactForm";
-import logoFelt from "../assets/logo/logo(light).png";
+import logoFelt from "../assets/logo/PORTFOLIO_LOGO.png";
 
 const ServiceSpectrum = () => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
@@ -67,7 +67,7 @@ const handleCardToggle = (index: number): void =>
 
         {/* Contact card */}
         <div
-          className="service-box contact-logo-card"
+          className="contact-logo-card"
           onClick={() => setShowContactForm(true)}
         >
           <div className="card-inner no-flip">

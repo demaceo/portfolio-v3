@@ -67,6 +67,21 @@
   transform: rotateY(180deg);
 }
 
+.contact-logo-card {
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 400px;
+  width: calc(33.333% - 1rem);
+  min-width: 280px;
+  perspective: 800px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-logo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
 /* === Faces === */
 .card-front,
 .card-back {

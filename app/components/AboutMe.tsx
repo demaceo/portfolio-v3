@@ -97,6 +97,14 @@ const AboutMe: React.FC = () => {
               <strong>Purpose-Driven Innovator</strong>
             </span>
           </li>
+          <li>
+            <span
+              className="pill-tag"
+              data-tooltip="under construction: stay tuned to find out!"
+            >
+              <strong>& more...</strong>
+            </span>
+          </li>
         </ul>
       </div>
     </section>

@@ -1,10 +1,3 @@
-// import webappsIcon from "../assets/icons/corporate.png";
-// import mobileappIcon from "../assets/icons/mobile.png";
-// import frontendIcon from "../assets/icons/frontend.png";
-// import apiIcon from "../assets/icons/api-microservices.png";
-// import clouddevopsIcon from "../assets/icons/clouddevops.png";
-// import databasesIcon from "../assets/icons/database.png";
-// import automationIcon from "../assets/icons/automation.png";
 import webappsIcon from "../assets/icons/WACS.png";
 import mobileappIcon from "../assets/icons/MAD.png";
 import frontendIcon from "../assets/icons/FED.png";
@@ -18,7 +11,7 @@ const services = [
     id: "sb1",
     title: "Web Apps & Corporate Sites",
     description:
-      "This is where problem-solving meets presentation. I craft websites and web apps that don’t just look good — they serve a function. Whether it’s a responsive marketing site or a fully-interactive dashboard, I merge aesthetic with utility to create experiences that work across browsers, devices, and humans.",
+      "This is where problem-solving meets presentation. I craft websites and web apps that don’t just look good — they serve a function. Merging aesthetic with utility to create experiences that work across browsers, devices, and humans.",
     icon: webappsIcon,
   },
   {
@@ -32,7 +25,7 @@ const services = [
     id: "sb3",
     title: "Front End Development",
     description:
-      "I convert ideas and interfaces into responsive, accessible, production-ready code. My code is thoughtful, maintainable, and responsive — bridging the gap between creativity and functionality while keeping performance and accessibility in focus. Think smooth transitions, semantic structure, and a UI that actually feels like it was built for people.",
+      "I convert ideas and interfaces into responsive, accessible, production-ready code. My code is thoughtful, maintainable, and responsive. Think smooth transitions, semantic structure, and a UI that actually feels like it was built for people.",
     icon: frontendIcon,
   },
   {
@@ -46,14 +39,14 @@ const services = [
     id: "sb5",
     title: "Cloud & DevOps",
     description:
-      "I set up infrastructure that doesn’t get in your way. I help take projects from “it works on my machine..” to “it works everywhere!” From Docker containers and CI/CD pipelines to AWS and Azure deployments, I automate the tedious stuff so your ideas ship faster — and more reliably. Out of sight but not out of mind - infrastructure as it should be.",
+      "I set up infrastructure that doesn’t get in the way. I help take projects from “it works on my machine..” to “it works everywhere!” From Docker containers and CI/CD pipelines to AWS and Azure deployments, I automate the tedious stuff so your ideas ship faster and more reliably. Out of sight but not out of mind - infrastructure as it should be.",
     icon: clouddevopsIcon,
   },
   {
     id: "sb6",
     title: "Data & Database Design",
     description:
-      "We expect our data to be cleanly organized, quickly accessible, and securely protected. Whether it’s MongoDB, PostgreSQL, or something in between, I organize data in a way that makes it easy to find, secure to store, and fast to query — because performance starts at the schema.",
+      "We expect our data to be neatly organized, quickly accessible, and securely protected. Whether it’s MongoDB, PostgreSQL, or something in between, I organize data in a way that makes it easy to find, secure to store, and fast to query — because performance starts at the schema.",
     icon: databasesIcon,
   },
   {
