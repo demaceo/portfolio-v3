@@ -131,8 +131,8 @@ const MacintoshLanding = () => {
   const handleViewClick = () => {
     setMenuQuirks((prev) => ({ ...prev, viewInverted: !prev.viewInverted }));
     const message = menuQuirks.viewInverted
-      ? "🙂 Back to normal view! Everything is as it is now!"
-      : "🙃 Welcome to the upside-down view! Everything is as it is now!";
+      ? "🙂 Back to normal view! Everything is as it once was again now!..?"
+      : "🙃 Welcome to the upside-down inside-out view! Everything is as it is now!";
     showModal(message, "view");
   };
 
@@ -142,11 +142,9 @@ const MacintoshLanding = () => {
       specialRainbow: !prev.specialRainbow,
     }));
     const messages = [
-      "✨ You've discovered the rainbow mode!",
-      "🌈 Special effects activated!",
-      "🎊 Party time! Everything's more colorful now!",
-      "🦄 Unicorn mode engaged!",
-      "🎆 Welcome to the fun zone!",
+      "✨ Special Effects: ACTIVATED 👊😎",
+      "🎊 it's PARTY TIME! 🎭",
+      "🪩 Disco Mode: ENGAGED 🕺",
     ];
     showModal(messages[Math.floor(Math.random() * messages.length)], "special");
 
@@ -259,20 +257,7 @@ const MacintoshLanding = () => {
           </div>
         </div>
 
-        {showContactForm && (
-          // <div className="contact-overlay">
-          //   <div className="contact-window">
-          //     <div className="contact-header">
-          //       <button className="close-contact" onClick={handleCloseContact}>
-          //         ✕
-          //       </button>
-          //     </div>
-          <div className="contact-content">
-            <ContactForm onClose={handleCloseContact} />
-          </div>
-          //   </div>
-          // </div>
-        )}
+
       </div>
     );
   }
@@ -403,12 +388,11 @@ const MacintoshLanding = () => {
       {showContactForm && (
         <div className="contact-overlay">
           <div className="contact-window">
-            <div className="contact-header">
-              <span>Contact Me</span>
+            {/* <div className="contact-header">
               <button className="close-contact" onClick={handleCloseContact}>
                 ✕
               </button>
-            </div>
+            </div> */}
             <div className="contact-content">
               <ContactForm onClose={handleCloseContact} />
             </div>

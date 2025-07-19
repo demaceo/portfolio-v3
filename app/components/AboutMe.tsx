@@ -52,19 +52,19 @@ const AboutMe: React.FC = () => {
           <li>
             <span
               className="pill-tag"
-              data-tooltip="See patterns, simplify complexity, and generate creative solutions while building trust through deep listening and collaboration"
+              data-tooltip="See patterns, simplify complexity, and generate creative solutions while building trust through actively listening and collaborating"
             >
               <strong>Intuitive Problem Solver</strong>
             </span>
           </li>
-          <li>
+          {/* <li>
             <span
               className="pill-tag"
-              data-tooltip="Energized by change, challenge, and continuous learning - driven by curiosity and growth"
+              data-tooltip="Energized by change, challenge, and continuous learning"
             >
               <strong>Adaptive Learner</strong>
             </span>
-          </li>
+          </li> */}
           <li>
             <span
               className="pill-tag"
@@ -76,17 +76,9 @@ const AboutMe: React.FC = () => {
           <li>
             <span
               className="pill-tag"
-              data-tooltip="Pursue growth, purpose, and authentic action in everything I do"
+              data-tooltip="Detail-oriented, organized, and steady - someone you can count on to follow through"
             >
-              <strong>Dependable Executor</strong>
-            </span>
-          </li>
-          <li>
-            <span
-              className="pill-tag"
-              data-tooltip="Driven by curiosity, integrity, and a desire to make a positive impact"
-            >
-              <strong>Purpose-Driven Innovator</strong>
+              <strong>Analytical & Reliable</strong>
             </span>
           </li>
           <li>
@@ -100,9 +92,9 @@ const AboutMe: React.FC = () => {
           <li>
             <span
               className="pill-tag"
-              data-tooltip="Detail-oriented, organized, and steady - someone you can count on to follow through"
+              data-tooltip="Driven by curiosity, integrity, and a desire to make a positive impact"
             >
-              <strong>Analytical & Reliable</strong>
+              <strong>Purpose-Driven Innovator</strong>
             </span>
           </li>
         </ul>

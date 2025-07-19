@@ -617,7 +617,7 @@
   align-items: center;
   z-index: 1000;
   animation: fadeIn 0.4s ease-out;
-  padding: 20px;
+  padding: 10px;
 }
 
 @keyframes fadeIn {
@@ -634,18 +634,18 @@
 .contact-window {
   background: linear-gradient(
     145deg,
-    rgba(26, 26, 46, 0.98) 0%,
-    rgba(30, 30, 46, 0.95) 50%,
+    rgba(106, 60, 144, 0.587) 0%,
+    rgba(38, 30, 46, 0.95) 50%,
     rgba(26, 26, 46, 0.98) 100%
   );
-  border: 2px solid rgba(0, 212, 255, 0.6);
-  border-radius: 20px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(0, 212, 255, 0.4),
-    0 0 120px rgba(255, 0, 110, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15),
+  /* border: 2px solid rgba(0, 212, 255, 0.6); */
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(2, 25, 30, 0.4),
+    0 0 120px rgba(191, 0, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(30px);
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   max-height: 85vh;
   overflow: hidden;
   position: relative;
@@ -663,7 +663,7 @@
   }
 }
 
-.contact-header {
+/* .contact-header {
   height: 60px;
   background: linear-gradient(
     135deg,
@@ -686,9 +686,9 @@
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.5px;
-}
+} */
 
-.close-contact {
+/* .close-contact {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
@@ -716,10 +716,10 @@
 
 .close-contact:active {
   transform: scale(1.05) rotate(90deg);
-}
+} */
 
 .contact-content {
-  padding: 25px;
+  padding: 15px;
   max-height: calc(85vh - 120px);
   overflow-y: auto;
   scrollbar-width: thin;

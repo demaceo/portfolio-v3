@@ -53,7 +53,7 @@ const QuirkyModal: React.FC<QuirkyModalProps> = ({
       case "edit":
         return "✏️";
       case "view":
-        return "👁️";
+        return "🙃";
       case "special":
         return "✨";
       default:

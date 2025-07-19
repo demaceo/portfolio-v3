@@ -15,9 +15,7 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
     nameInputRef.current?.focus();
   }, []);
 
-  interface ShowMessageFn {
-    (message: string): void;
-  }
+  type ShowMessageFn = (message: string) => void;
 
   const showMessage: ShowMessageFn = (message) => {
     setStateMessage(message);
@@ -50,17 +48,18 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
   return (
     <div className="contact-form-container">
       <div className="email-form-wrapper">
-        <button
-          className="close-modal-btn"
-          onClick={onClose}
-          aria-label="Close Contact Form"
-        >
-          &times;
-        </button>
+        <div className="contact-title-bar">
+          <div className="contact-window-controls">
+            <button
+              className="contact-close-btn"
+              onClick={onClose}
+              aria-label="Close Contact Form"
+            ></button>
+          </div>
+          <span className="contact-window-title">Contact Me</span>
+        </div>
 
         <form className="email-form" onSubmit={sendEmail}>
-          <h3>Contact Me</h3>
-
           <label htmlFor="from_name">Name</label>
           <input
             ref={nameInputRef}
