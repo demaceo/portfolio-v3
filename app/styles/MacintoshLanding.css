@@ -66,7 +66,7 @@
   gap: 15px;
 }
 
-.apple-logo {
+.my-logo {
   height: 25px;
   width: auto;
   object-fit: contain;
@@ -433,9 +433,9 @@
   /* margin-top: 2.5px; */
 }
 
-.time {
+/* .time {
   font-weight: lighter;
-}
+} */
 
 .wallpaper {
   flex: 1;

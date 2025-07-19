@@ -238,7 +238,7 @@ const MacintoshLanding = () => {
               </div>
               <div className="mobile-window-content">
                 {/* <h2>Demaceo Vincent</h2> */}
-                <p>Explore my work and get in touch.</p>
+                <p>Explore my work & get in touch.</p>
               </div>
             </div>
 
@@ -344,7 +344,7 @@ const MacintoshLanding = () => {
       >
         <div className="menu-bar">
           <div className="menu-left">
-            <img className="apple-logo" alt="portfolio-logo" src={logo} />
+            <img className="my-logo" alt="portfolio-logo" src={logo} />
             <span
               className="menu-item"
               onClick={handleFileClick}
