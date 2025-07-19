@@ -6,11 +6,20 @@ import {
   faCog,
   faLaptopCode,
   faEnvelope,
+  faBriefcase,
+  faPaw,
+  faTheaterMasks,
+  faRobot,
+  faMusic,
+  faCookieBite,
+  faFilm,
+  type IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
 import QuirkyModal from "./QuirkyModal";
 import RandomButton from "./RandomButton";
 import logo from "../assets/logo/PORTFOLIO_LOGO.png";
+import projectData from "../utilities/projectData";
 import "../styles/MacintoshLanding.css";
 
 const MacintoshLanding = () => {
@@ -78,6 +87,9 @@ const MacintoshLanding = () => {
   const handleAppClick = (path: HandleAppClickProps["path"]): void => {
     if (path === "/contact") {
       setShowContactForm(true);
+    } else if (path.startsWith("http")) {
+      // External URL - open in new tab
+      window.open(path, "_blank");
     } else {
       navigate(path);
     }
@@ -171,17 +183,41 @@ const MacintoshLanding = () => {
     { name: "Contact", icon: faEnvelope, path: "/contact" },
   ];
 
-  const mobileApps = [
-    { name: "About", icon: faUser, path: "/mindset" },
-    { name: "Projects", icon: faLaptopCode, path: "/projects" },
-    // { name: "Resume", icon: faFileAlt, path: "/resume" },
-    { name: "Toolkit", icon: faCog, path: "/skillset" },
-    { name: "Contact", icon: faEnvelope, path: "/contact" },
-    // { name: "Media", icon: "📷", path: "/projects" },
-    // { name: "Settings", icon: "⚙️", path: "/mindset" },
-    // { name: "Messages", icon: "💬", path: "/mindset" },
-    // { name: "Calendar", icon: "📅", path: "/resume" },
-  ];
+  const mobileApps = projectData
+    .filter((project) => !project.archived)
+    .slice(0, 6)
+    .map((project) => {
+      // Map project icons to FontAwesome icons
+      let icon: IconDefinition | undefined;
+      let image = project.image || "";
+      if (project.icon === "fas fa-briefcase icon") {
+        icon = faBriefcase;
+      } else if (project.icon === "fa fa-paw icon") {
+        icon = faPaw;
+      } else if (project.id === 1 || project.id === 0) {
+        image = project.image;
+      // } else if (project.icon === "fas fa-robot icon") {
+      //   icon = faRobot;
+      // } else if (project.icon === "fas fa-music icon") {
+      //   icon = faMusic;
+      // } else if (project.icon === "fas fa-cookie-bite icon") {
+      //   icon = faCookieBite;
+      // } else if (project.icon === "fas fa-film icon") {
+      //   icon = faFilm;
+      } else {
+        // Default icon for projects without specific icons
+        icon = faLaptopCode;
+      }
+
+      return {
+        name: project.name,
+        icon: icon,
+        image,
+        path: project.link.startsWith("http")
+          ? project.link
+          : `/project/${project.id}`,
+      };
+    });
 
   if (isMobile) {
     return (
@@ -222,7 +258,10 @@ const MacintoshLanding = () => {
                   }}
                 >
                   <span className="icon">
-                    <FontAwesomeIcon icon={app.icon} />
+                    {app.icon && typeof app.icon !== "number" && (
+                      <FontAwesomeIcon icon={app.icon} />
+                    )}
+                    {app.image && <img className="app-image" src={app.image} alt={app.name} />}
                   </span>
                   <span className="app-name">{app.name}</span>
                 </button>
@@ -239,20 +278,6 @@ const MacintoshLanding = () => {
             <button
               className="dock-app"
               type="button"
-              onClick={() => handleAppClick("/projects")}
-              tabIndex={0}
-              aria-label="Projects"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  handleAppClick("/projects");
-                }
-              }}
-            >
-              <FontAwesomeIcon icon={faLaptopCode} />
-            </button>
-            <button
-              className="dock-app"
-              type="button"
               onClick={() => handleAppClick("/mindset")}
               tabIndex={0}
               aria-label="About Me"
@@ -263,6 +288,20 @@ const MacintoshLanding = () => {
               }}
             >
               <FontAwesomeIcon icon={faUser} />
+            </button>
+            <button
+              className="dock-app"
+              type="button"
+              onClick={() => handleAppClick("/projects")}
+              tabIndex={0}
+              aria-label="Projects"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleAppClick("/projects");
+                }
+              }}
+            >
+              <FontAwesomeIcon icon={faLaptopCode} />
             </button>
             <button
               className="dock-app"

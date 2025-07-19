@@ -399,7 +399,7 @@
   background: #62dcf537;
   border: 2px solid #3b3a3a;
   border-radius: 0;
-    backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 
   position: relative;
   display: flex;
@@ -709,13 +709,13 @@
 
 /* Different gradients for dock apps */
 .dock-app:nth-child(1) {
-  /* Projects */
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  /* About */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .dock-app:nth-child(2) {
-  /* About */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Projects */
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .dock-app:nth-child(3) {
