@@ -228,11 +228,11 @@ const MacintoshLanding = () => {
                 </button>
               ))}
             </div>
+          </div>
 
-            <div className="page-indicators">
-              <div className="page-dot active"></div>
-              <div className="page-dot"></div>
-            </div>
+          <div className="page-indicators">
+            <div className="page-dot active"></div>
+            <div className="page-dot"></div>
           </div>
 
           <div className="dock-mobile">
