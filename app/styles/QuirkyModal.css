@@ -1,0 +1,295 @@
+/* Quirky Modal Styles */
+.quirky-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+.quirky-modal {
+  background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+  border: 2px solid #333;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  width: 90%;
+  max-width: 400px;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-family: "Chicago", "Geneva", monospace;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.7) translateY(-50px) rotate(5deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.quirky-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+  border-bottom: 1px solid #999;
+}
+
+.quirky-modal-icon {
+  font-size: 24px;
+  animation: iconBounce 0.6s ease-out;
+}
+
+@keyframes iconBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.quirky-modal-close {
+  background: #ff5f56;
+  border: 1px solid #e0443e;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.quirky-modal-close:hover {
+  background: #e0443e;
+  transform: scale(1.1);
+}
+
+.quirky-modal-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.quirky-modal-message {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+  animation: messageTypewriter 0.8s ease-out;
+}
+
+@keyframes messageTypewriter {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.quirky-modal-footer {
+  height: 4px;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.quirky-modal-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #45a049);
+  width: 0;
+  animation: progressBar 3s linear forwards;
+}
+
+@keyframes progressBar {
+  to {
+    width: 100%;
+  }
+}
+
+/* File Modal Theme */
+.quirky-modal-file {
+  border-color: #2196f3;
+}
+
+.quirky-modal-file .quirky-modal-header {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.quirky-modal-file .quirky-modal-progress {
+  background: linear-gradient(90deg, #2196f3, #1976d2);
+}
+
+/* Edit Modal Theme */
+.quirky-modal-edit {
+  border-color: #ff9800;
+  animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    modalShake 0.5s ease-in-out 0.4s;
+}
+
+@keyframes modalShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-3px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.quirky-modal-edit .quirky-modal-header {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+}
+
+.quirky-modal-edit .quirky-modal-progress {
+  background: linear-gradient(90deg, #ff9800, #f57c00);
+}
+
+/* View Modal Theme */
+.quirky-modal-view {
+  border-color: #9c27b0;
+}
+
+.quirky-modal-view .quirky-modal-header {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.quirky-modal-view .quirky-modal-progress {
+  background: linear-gradient(90deg, #9c27b0, #7b1fa2);
+}
+
+/* Special Modal Theme */
+.quirky-modal-special {
+  border: 2px solid transparent;
+  background: linear-gradient(#ffffff, #f5f5f5) padding-box,
+    linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #9400d3
+      )
+      border-box;
+  animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    rainbowPulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes rainbowPulse {
+  0%,
+  100% {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 0, 110, 0.3);
+  }
+  50% {
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.5);
+  }
+}
+
+.quirky-modal-special .quirky-modal-header {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 110, 0.1) 0%,
+    rgba(0, 212, 255, 0.1) 50%,
+    rgba(255, 0, 110, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.quirky-modal-special .quirky-modal-progress {
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #9400d3
+  );
+  background-size: 200% 100%;
+  animation: progressBar 3s linear forwards, rainbowFlow 1s linear infinite;
+}
+
+@keyframes rainbowFlow {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .quirky-modal {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .quirky-modal-message {
+    font-size: 14px;
+  }
+
+  .quirky-modal-content {
+    padding: 15px;
+  }
+}

@@ -9,6 +9,8 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
+import QuirkyModal from "./QuirkyModal";
+import RandomButton from "./RandomButton";
 import logo from "../assets/logo/logo(light).png";
 import "../styles/MacintoshLanding.css";
 
@@ -21,6 +23,12 @@ const MacintoshLanding = () => {
     editShake: false,
     viewInverted: false,
     specialRainbow: false,
+  });
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    message: "",
+    type: "file" as "file" | "edit" | "view" | "special",
+    showRandomButton: false,
   });
   const navigate = useNavigate();
 
@@ -56,12 +64,6 @@ const MacintoshLanding = () => {
     } as FormatTimeOptions);
   };
 
-  interface App {
-    name: string;
-    icon: any; // FontAwesome IconDefinition
-    path: string;
-  }
-
   const formatDate = (date: Date): string => {
     return date.toLocaleDateString("en-US", {
       weekday: "short",
@@ -86,30 +88,40 @@ const MacintoshLanding = () => {
     setShowContactForm(false);
   };
 
-  // Quirky menu item handlers
+    // Quirky menu item handlers
+  const showModal = (message: string, type: "file" | "edit" | "view" | "special", showRandomButton = false) => {
+    setModalState({ isOpen: true, message, type, showRandomButton });
+  };
+
+  const handleRandomButtonClick = () => {
+    setModalState(prev => ({ ...prev, isOpen: false, showRandomButton: false }));
+  };
+
   const handleFileClick = () => {
     const newCount = menuQuirks.fileClicks + 1;
     setMenuQuirks((prev) => ({ ...prev, fileClicks: newCount }));
 
     const messages = [
-      "🗂️ Files are overrated anyway!",
-      "📁 I prefer to keep things messy!",
-      "🎪 Welcome to the digital circus!",
-      "🎭 Plot twist: There are no files!",
-      "🎨 Files? Where we're going, we don't need files!",
-      "🚀 You've unlocked the secret file dimension!",
+      "Is this a bug? Or a feature? 🤔",
+      "Hey there, good to see you again..",
+      "🎪 Welcome to the digital circus! 🎪",
+      "Plot twist: There are no files.",
+      "Files? Where we're going, we don't need files!",
+      `🎉 File click #${newCount}! You're persistent, I like that! 🃏`,
+      // "You've unlocked the secret file dimension..",
     ];
 
     if (newCount <= messages.length) {
-      alert(messages[newCount - 1]);
+      showModal(messages[newCount - 1], "file");
     } else {
-      alert(`🎉 File click #${newCount}! You're persistent, I like that!`);
+      // Special case: Show "And then?" modal with random button
+      showModal("And then?", "file", true);
     }
   };
 
   const handleEditClick = () => {
     setMenuQuirks((prev) => ({ ...prev, editShake: true }));
-    alert("🔧 Oops! You can't edit perfection! *shakes screen*");
+    showModal("Nope! You can't edit perfection 🤭", "edit");
 
     setTimeout(() => {
       setMenuQuirks((prev) => ({ ...prev, editShake: false }));
@@ -119,9 +131,9 @@ const MacintoshLanding = () => {
   const handleViewClick = () => {
     setMenuQuirks((prev) => ({ ...prev, viewInverted: !prev.viewInverted }));
     const message = menuQuirks.viewInverted
-      ? "👁️ Back to normal view! Reality restored!"
-      : "🙃 Welcome to the upside-down view! Everything's backwards now!";
-    alert(message);
+      ? "🙂 Back to normal view! Everything is as it is now!"
+      : "🙃 Welcome to the upside-down view! Everything is as it is now!";
+    showModal(message, "view");
   };
 
   const handleSpecialClick = () => {
@@ -136,7 +148,7 @@ const MacintoshLanding = () => {
       "🦄 Unicorn mode engaged!",
       "🎆 Welcome to the fun zone!",
     ];
-    alert(messages[Math.floor(Math.random() * messages.length)]);
+    showModal(messages[Math.floor(Math.random() * messages.length)], "special");
 
     // Auto-disable rainbow after 10 seconds
     if (!menuQuirks.specialRainbow) {
@@ -403,6 +415,20 @@ const MacintoshLanding = () => {
           </div>
         </div>
       )}
+
+      <QuirkyModal
+        isOpen={modalState.isOpen}
+        message={modalState.message}
+        type={modalState.type}
+        showRandomButton={modalState.showRandomButton}
+        onClose={() => setModalState((prev) => ({ ...prev, isOpen: false }))}
+        onRandomButtonClick={handleRandomButtonClick}
+      />
+
+      <RandomButton
+        isVisible={modalState.showRandomButton && modalState.isOpen}
+        onButtonClick={handleRandomButtonClick}
+      />
     </div>
   );
 };
