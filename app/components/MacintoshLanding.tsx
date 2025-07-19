@@ -5,13 +5,12 @@ import {
   faUser,
   faCog,
   faLaptopCode,
-  faFileAlt,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
 import QuirkyModal from "./QuirkyModal";
 import RandomButton from "./RandomButton";
-import logo from "../assets/logo/logo(light).png";
+import logo from "../assets/logo/PORTFOLIO_LOGO.png";
 import "../styles/MacintoshLanding.css";
 
 const MacintoshLanding = () => {
@@ -88,13 +87,21 @@ const MacintoshLanding = () => {
     setShowContactForm(false);
   };
 
-    // Quirky menu item handlers
-  const showModal = (message: string, type: "file" | "edit" | "view" | "special", showRandomButton = false) => {
+  // Quirky menu item handlers
+  const showModal = (
+    message: string,
+    type: "file" | "edit" | "view" | "special",
+    showRandomButton = false
+  ) => {
     setModalState({ isOpen: true, message, type, showRandomButton });
   };
 
   const handleRandomButtonClick = () => {
-    setModalState(prev => ({ ...prev, isOpen: false, showRandomButton: false }));
+    setModalState((prev) => ({
+      ...prev,
+      isOpen: false,
+      showRandomButton: false,
+    }));
   };
 
   const handleFileClick = () => {
@@ -181,12 +188,24 @@ const MacintoshLanding = () => {
       <div className="iphone-container">
         <div className="iphone-screen">
           <div className="status-bar">
-            <span className="carrier">Demaceo</span>
+            <img className="carrier" alt="portfolio-logo" src={logo} />
             <span className="time">{formatTime(currentTime)}</span>
-            <span className="battery">🔋</span>
           </div>
 
           <div className="wallpaper">
+            <div className="mobile-welcome-window">
+              <div className="mobile-window-title-bar">
+                <div className="mobile-window-controls">
+                  <div className="mobile-close-btn"></div>
+                </div>
+                <span className="mobile-window-title">Welcome</span>
+              </div>
+              <div className="mobile-window-content">
+                {/* <h2>Demaceo Vincent</h2> */}
+                <p>Explore my work and get in touch.</p>
+              </div>
+            </div>
+
             <div className="home-apps">
               {mobileApps.map((app) => (
                 <button
@@ -208,6 +227,11 @@ const MacintoshLanding = () => {
                   <span className="app-name">{app.name}</span>
                 </button>
               ))}
+            </div>
+
+            <div className="page-indicators">
+              <div className="page-dot active"></div>
+              <div className="page-dot"></div>
             </div>
           </div>
 
@@ -243,21 +267,25 @@ const MacintoshLanding = () => {
             <button
               className="dock-app"
               type="button"
-              onClick={() => handleAppClick("/resume")}
+              onClick={() => handleAppClick("/contact")}
               tabIndex={0}
-              aria-label="Resume"
+              aria-label="Contact"
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                  handleAppClick("/resume");
+                  handleAppClick("/contact");
                 }
               }}
             >
-              <FontAwesomeIcon icon={faFileAlt} />
+              <FontAwesomeIcon icon={faEnvelope} />
             </button>
           </div>
         </div>
 
-
+        {showContactForm && (
+          <div className="contact-content">
+            <ContactForm onClose={handleCloseContact} />
+          </div>
+        )}
       </div>
     );
   }
